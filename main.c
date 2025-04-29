@@ -1,11 +1,6 @@
 #include <stdio.h>
 
-int main() {
-	float num1, num2, resultado;
-	int operacao;
-	int continuar;
-	
-	do {
+void mostrarMenu() {
 	
 	printf("Calculadora Simples\n");
 	printf("-------------------\n");
@@ -14,13 +9,11 @@ int main() {
 	printf("2 - Subtracao (-)\n");
 	printf("3 - Multiplicacao (*)\n");
 	printf("4 - Divisao (/)\n");
-	printf("Digite o numero da operacao: ");
-	scanf("%d", &operacao); //%d significa número inteiro (int) e & é usado para passar o endereço de 'operacao' para o 'scanf'
+	printf("Digite o numero da operacao: ");	
+}
 	
-	printf("Digite o primeiro numero: ");
-	scanf("%f", &num1);
-	printf("Digite o segundo numero: ");
-	scanf("%f", &num2);
+float realizarCalculo(int operacao, float num1, float num2){
+	float resultado = 0;
 	
 	switch (operacao) {
 		case 1:
@@ -46,10 +39,33 @@ int main() {
 		default:
 			printf("Operacao invalida!");
 	}
+	return resultado;
+}
 	
+int desejaContinuar() {
+	int opcao;
 	printf("\nDeseja fazer outra operacao? (1- Sim / 0 - Nao): ");
-	scanf("%d", &continuar);
+	scanf("%d", &opcao);
+	return opcao;
+}
+
+int main() {
+	float num1, num2;
+	int operacao;
+	int continuar;
 	
+	do {
+		mostrarMenu();
+		scanf ("%d", &operacao);
+		
+		printf("Digite o primeiro numero: ");
+		scanf("%f", &num1);
+		printf("Digite o segundo numero: ");
+		scanf("%f", &num2);
+		
+		realizarCalculo(operacao, num1, num2);
+		
+		continuar = desejaContinuar();
 	} while (continuar == 1);
 	
 	printf("Encerrando a calculadora.\n");
