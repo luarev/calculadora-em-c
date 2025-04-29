@@ -55,8 +55,14 @@ int main() {
 	int continuar;
 	
 	do {
-		mostrarMenu();
-		scanf ("%d", &operacao);
+		do {
+			mostrarMenu();
+			scanf ("%d", &operacao);
+		
+			if (operacao < 1 || operacao > 4){
+				printf("Operacao invalida! Tente novamente.\n\n");
+			} 
+		} while (operacao < 1 || operacao > 4);
 		
 		printf("Digite o primeiro numero: ");
 		scanf("%f", &num1);
