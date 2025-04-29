@@ -3,6 +3,9 @@
 int main() {
 	float num1, num2, resultado;
 	int operacao;
+	int continuar;
+	
+	do {
 	
 	printf("Calculadora Simples\n");
 	printf("-------------------\n");
@@ -44,5 +47,11 @@ int main() {
 			printf("Operacao invalida!");
 	}
 	
+	printf("\nDeseja fazer outra operacao? (1- Sim / 0 - Nao): ");
+	scanf("%d", &continuar);
+	
+	} while (continuar == 1);
+	
+	printf("Encerrando a calculadora.\n");
 	return 0; // return 0 significa que o programa terminou com sucesso.
 }
