@@ -55,14 +55,17 @@ int main() {
 	int continuar;
 	
 	do {
+		int entradaValida;
+		
 		do {
 			mostrarMenu();
-			scanf ("%d", &operacao);
-		
-			if (operacao < 1 || operacao > 4){
-				printf("Operacao invalida! Tente novamente.\n\n");
-			} 
-		} while (operacao < 1 || operacao > 4);
+			entradaValida = scanf ("%d", &operacao);
+			
+			if(entradaValida != 1 || operacao < 1 || operacao > 4){
+				while (getchar() != '\n'); 
+				printf("Entrada invalida! Digite um numero de 1 a 4.\n\n");
+			}
+		} while (entradaValida != 1 || operacao < 1 || operacao > 4);
 		
 		printf("Digite o primeiro numero: ");
 		scanf("%f", &num1);
